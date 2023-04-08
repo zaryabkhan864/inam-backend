@@ -19,9 +19,9 @@ const auth = require('./routes/authRoute');
 const patient = require('./routes/patientRoute');
 
 
-// app.use('/api/v1', auth)
+app.use('/api/v1', auth)
 app.use('/api/v1', patient)
-// app.use('/api/v1', predict);
+app.use('/api/v1', predict);
 
 //Middle to handle error
 app.use(errorMiddleware);
