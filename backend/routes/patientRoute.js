@@ -3,7 +3,7 @@ const router = express.Router();
 
 const {
     registerPatient,
-    // loginUser,
+    loginPatient,
     // forgotPassword,
     // resetPassword,
     // getUserProfile,
@@ -24,7 +24,7 @@ router.route('/patient/register').post(registerPatient);
 router.route('/test').get((req, res) => {
     res.send(200, 'api is working')
 })
-// router.route('/login').post(loginUser);
+router.route('/login/patient').post(loginPatient);
 
 // router.route('/password/forgot').post(forgotPassword)
 // router.route('/password/reset/:token').put(resetPassword)

@@ -9,10 +9,12 @@ app.use(bodyParser.json());
 const predict = require('./routes/bpmRoute')
 const auth = require('./routes/authRoute');
 const patient = require('./routes/patientRoute');
+const doctor = require('./routes/doctorRoute');
 
 
 app.use('/api/v1', auth)
 app.use('/api/v1', patient)
+app.use('/api/v1', doctor)
 app.use('/api/v1', predict);
 
 //Middle to handle error

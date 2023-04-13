@@ -32,44 +32,21 @@ console.log(`lable data print`, trainingLabels);
 
 model.fit(trainingInputs, trainingLabels, { epochs: 50 }).then(() => {
     console.log('Model trained');
+
+
 });
 
-// exports.getPredict = catchAsyncErrors(async (req, res, next) => {
-//     const { age, sex, cp, Weight, HR, BP, Smoker, FamilyHistory, HeartDisease, HeartAttackHistory } = req.body;
-//     console.log(`what is inside req body`, req.body);
-//     const input = tf.tensor([[age, sex === 'male' ? 1 : 0, cp, Weight, HR, BP, Smoker, FamilyHistory, HeartDisease, HeartAttackHistory]]);
-//     console.log('the input values are :', input);
-//     const prediction = model.predict(input);
-//     const output = prediction.arraySync()[0][0];
-//     const probability = Math.round(output * 100);
-//     console.log(`prediction value`, probability)
-//     res.json({ probability });
-// })
-// exports.getPredict = catchAsyncErrors(async (req, res, next) => {
-//     const { age, sex, cp, Weight, HR, BP, Smoker, FamilyHistory, HeartDisease, HeartAttackHistory } = req.body;
-//     const input = tf.tensor([[age, sex === 'male' ? 1 : 0, cp, Weight, HR, BP, Smoker, FamilyHistory, HeartDisease, HeartAttackHistory]]);
-//     const prediction = model.predict(input).dataSync()[0];
-//     res.json({ prediction: `${Math.round(prediction * 100)}%` });
-// })
+
+
 exports.getPredict = catchAsyncErrors(async (req, res, next) => {
     const { age, sex, cp, Weight, HR, BP, Smoker, FamilyHistory, HeartDisease, HeartAttackHistory } = req.body;
     console.log(`what is inside req body`, req.body);
     const input = tf.tensor([[age, sex === 'male' ? 1 : 0, cp, Weight, HR, BP, Smoker, FamilyHistory, HeartDisease, HeartAttackHistory]]);
     console.log('the input values are :', input);
     const prediction = model.predict(input);
-    const predictionData = prediction.dataSync()[0];
-    const predictionPercentage = Math.round(predictionData * 100);
-    res.json({ prediction: predictionPercentage });
-})
-// exports.getPredict = catchAsyncErrors(async (req, res, next) => {
-//     const { age, sex, cp, Weight, HR, BP, Smoker, FamilyHistory, HeartDisease, HeartAttackHistory } = req.body;
-//     console.log(`what is inside req body`, req.body);
-//     const input = tf.tensor([[age, sex === 'male' ? 1 : 0, cp, Weight, HR, BP, Smoker, FamilyHistory, HeartDisease, HeartAttackHistory]]);
-//     console.log('the input values are :', input);
-//     const prediction = model.predict(input);
-//     const output = prediction.arraySync()[0][0] * 100;
-//     console.log(`prediction value in percentage`, output);
-//     res.json({ prediction: output });
-// })
+    // console.log(`prediction value`, prediction)
+    res.json({ prediction });
 
+
+})
 
