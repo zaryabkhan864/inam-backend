@@ -42,7 +42,7 @@ const doctorSchema = new mongoose.Schema({
         validate: {
             validator: function (v) {
                 return /^[0-9]{11}$/.test(v);
-            }, message: 'Kindly Provide valid Phone Number'
+            }, message: 'Kindly Provide valid Personal phone Number'
         }
     },
 
@@ -53,7 +53,7 @@ const doctorSchema = new mongoose.Schema({
         validate: {
             validator: function (v) {
                 return /^[0-9]{11}$/.test(v);
-            }, message: 'Kindly Provide valid work Number'
+            }, message: 'Kindly Provide valid work phone Number'
         }
     },
     hospitalName: {
